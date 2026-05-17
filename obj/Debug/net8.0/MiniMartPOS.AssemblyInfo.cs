@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniMartPOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c8e23bb2768e8f2c82c331b991d5358e11ccf39")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniMartPOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniMartPOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

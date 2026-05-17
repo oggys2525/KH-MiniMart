@@ -315,3 +315,4 @@ C:\Users\Chansokpheaktra_Phy\Desktop\MiniMartSystem\MiniMartPOS (2)\MiniMartPOS\
 C:\Users\Chansokpheaktra_Phy\Desktop\MiniMartSystem\MiniMartPOS (2)\MiniMartPOS\tests\MiniMartPOS.Tests\bin\Debug\net8.0\bin-temp\MiniMartPOS.runtimeconfig.json
 C:\Users\Chansokpheaktra_Phy\Desktop\MiniMartSystem\MiniMartPOS (2)\MiniMartPOS\tests\MiniMartPOS.Tests\bin\Debug\net8.0\bin-temp\MiniMartPOS.staticwebassets.endpoints.json
 C:\Users\Chansokpheaktra_Phy\Desktop\MiniMartSystem\MiniMartPOS (2)\MiniMartPOS\tests\MiniMartPOS.Tests\bin\Debug\net8.0\bin-temp\MiniMartPOS.staticwebassets.runtime.json
+C:\Users\Chansokpheaktra_Phy\Desktop\MiniMartSystem\MiniMartPOS (2)\MiniMartPOS\tests\MiniMartPOS.Tests\obj\Debug\net8.0\MiniMartPOS.Tests.sourcelink.json
