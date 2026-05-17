@@ -1,0 +1,43 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: minimart-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "YourStrong@Passw0rd"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minimart-backend
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=MiniMartPOS;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;Encrypt=False;"
+      Jwt__Key: "YOUR-STRONG-LOCAL-DOCKER-JWT-KEY-CHANGE-THIS"
+      Jwt__Issuer: "MiniMartPOS"
+      Jwt__Audience: "MiniMartPOSUsers"
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./ClientApp
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: "http://localhost:8080/api"
+    container_name: minimart-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  sql_data:

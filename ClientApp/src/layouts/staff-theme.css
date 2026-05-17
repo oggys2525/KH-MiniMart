@@ -1,0 +1,168 @@
+:root {
+  --kh-staff-blue: #032b6b;
+  --kh-staff-blue-soft: #0b4db8;
+  --kh-staff-red: #c8102e;
+  --kh-staff-surface: #f8fafc;
+  --kh-staff-theme-top: #032b6b;
+  --kh-staff-theme-mid: #c8102e;
+  --kh-staff-theme-bottom: #032b6b;
+  --kh-staff-accent: #0b4db8;
+  --kh-staff-accent-soft: #c8102e;
+}
+
+.staff-theme.theme-cambodia {
+  --kh-staff-theme-top: #032b6b;
+  --kh-staff-theme-mid: #c8102e;
+  --kh-staff-theme-bottom: #032b6b;
+  --kh-staff-accent: #0b4db8;
+  --kh-staff-accent-soft: #c8102e;
+}
+
+.staff-theme.theme-ocean {
+  --kh-staff-theme-top: #0f172a;
+  --kh-staff-theme-mid: #0ea5e9;
+  --kh-staff-theme-bottom: #1d4ed8;
+  --kh-staff-accent: #0369a1;
+  --kh-staff-accent-soft: #38bdf8;
+}
+
+.staff-theme.theme-forest {
+  --kh-staff-theme-top: #14532d;
+  --kh-staff-theme-mid: #16a34a;
+  --kh-staff-theme-bottom: #064e3b;
+  --kh-staff-accent: #15803d;
+  --kh-staff-accent-soft: #4ade80;
+}
+
+.staff-theme {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--kh-staff-theme-top) 96%, transparent) 0%,
+    color-mix(in srgb, var(--kh-staff-theme-top) 96%, transparent) 12%,
+    color-mix(in srgb, var(--kh-staff-theme-mid) 96%, transparent) 12%,
+    color-mix(in srgb, var(--kh-staff-theme-mid) 96%, transparent) 88%,
+    color-mix(in srgb, var(--kh-staff-theme-bottom) 96%, transparent) 88%,
+    color-mix(in srgb, var(--kh-staff-theme-bottom) 96%, transparent) 100%
+  );
+}
+
+.staff-theme::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(255, 255, 255, 0.24),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 86% 84%,
+      rgba(255, 255, 255, 0.18),
+      transparent 42%
+    );
+}
+
+.staff-theme .staff-main {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.96),
+    rgba(241, 245, 249, 0.96)
+  );
+}
+
+.staff-theme .staff-content-shell {
+  animation: staffPageIn 520ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
+}
+
+.staff-theme .staff-card {
+  border: 1px solid color-mix(in srgb, var(--kh-staff-accent) 18%, transparent);
+  box-shadow: 0 12px 28px rgba(3, 43, 107, 0.08);
+}
+
+.staff-theme .staff-products-hero {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--kh-staff-theme-top) 95%, transparent) 0%,
+    color-mix(in srgb, var(--kh-staff-theme-mid) 95%, transparent) 58%,
+    color-mix(in srgb, var(--kh-staff-theme-bottom) 92%, transparent) 100%
+  );
+}
+
+.staff-theme .staff-product-grid {
+  perspective: 1000px;
+}
+
+.staff-theme .staff-product-card {
+  transform: translateY(18px) scale(0.985);
+  opacity: 0;
+  animation: productCardIn 560ms cubic-bezier(0.2, 0.72, 0.2, 1) forwards;
+  animation-delay: calc(var(--card-index, 0) * 42ms);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+  will-change: transform;
+}
+
+.staff-theme .staff-product-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: color-mix(in srgb, var(--kh-staff-accent) 35%, transparent);
+  box-shadow: 0 18px 36px rgba(3, 43, 107, 0.18);
+}
+
+.staff-theme .staff-product-image-wrap {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--kh-staff-accent) 10%, transparent),
+    color-mix(in srgb, var(--kh-staff-accent-soft) 10%, transparent)
+  );
+}
+
+.staff-theme .staff-product-image {
+  transition: transform 340ms ease;
+}
+
+.staff-theme .staff-product-card:hover .staff-product-image {
+  transform: scale(1.08);
+}
+
+@keyframes staffPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes productCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .staff-theme .staff-content-shell,
+  .staff-theme .staff-product-card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .staff-theme .staff-product-card,
+  .staff-theme .staff-product-image {
+    transition: none !important;
+  }
+}
