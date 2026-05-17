@@ -1,0 +1,35 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.sln.ide
+*.vs/
+
+# Node
+ClientApp/node_modules/
+ClientApp/build/
+ClientApp/.env
+ClientApp/.env.*
+
+# Test output
+TestResults/
+
+# Logs
+*.log
+
+# Cache
+ClientApp/node_modules/.cache/
+
+# Coverage
+coverage/
+
+# Others
+*.DS_Store
+*.vscode/
+
+# Ignore debug and release folders in tests
+**/bin/
+**/obj/
